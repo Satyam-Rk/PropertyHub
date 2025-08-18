@@ -9,7 +9,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="userName">
-            @if (!userName.valid && userName.touched) {
+            @if (!userName.valid && (userName.touched || userSubmitted)) {
               <span class="error-block">
                 Please Provide a Username!
               </span>
@@ -19,7 +19,7 @@
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input type="text" class="form-control" formControlName="email">
-          @if (!email.valid && email.touched) {
+          @if (!email.valid && (email.touched || userSubmitted)) {
             @if (email.hasError('required')) {
               <span class="error-block">
                 Please Provide a Email!
@@ -37,7 +37,7 @@
         <div class="mb-3">
           <label for="passwrod" class="form-label">Password</label>
           <input type="password" class="form-control" formControlName="password">
-          @if (!password.valid && password.touched) {
+          @if (!password.valid && (password.touched || userSubmitted)) {
             @if (password.hasError('required')) {
               <span class="error-block">
                 Please Provide a Password!
@@ -61,7 +61,7 @@
         <div class="mb-3">
           <label for="cpassword" class="form-label">Confirm Password</label>
           <input type="password" class="form-control" formControlName="confirmPassword">
-          @if (!confirmPassword.valid && confirmPassword.touched) {
+          @if (!confirmPassword.valid && (confirmPassword.touched || userSubmitted)) {
             @if (confirmPassword.hasError('required')) {
               <span class="error-block">
                 Please Provide a Confirm Password!
@@ -78,8 +78,8 @@
 
         <div class="mb-3">
           <label for="mobile" class="form-label">Mobile</label>
-          <input type="text" class="form-control" formControlName="mobile">
-          @if (!mobile.valid && mobile.touched) {
+          <input type="number" class="form-control" formControlName="mobile">
+          @if (!mobile.valid && (mobile.touched || userSubmitted)) {
               <span class="error-block">
                 Please Provide a Mobile Number!
               </span>
@@ -90,8 +90,6 @@
           <button type="submit" class="btn btn-primary me-2">Save</button>
           <button type="reset" class="btn btn-secondary">Cancel</button>
         </div>
-        Form Values: {{registrationForm.value | json }} <br/>
-        Form Status: {{registrationForm.valid}}
       </form>
     </div>
   </div>
