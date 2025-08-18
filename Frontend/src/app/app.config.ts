@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { HousingService } from './services/housing.service';
 import { UserService } from './services/user.service';
+import { AlertifyService } from './services/alertify.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(routes),
     HousingService,
-    UserService
+    UserService,
+    AlertifyService
   ]
 };
